@@ -6,191 +6,283 @@
     android:layout_height="match_parent"
     tools:context=".UserActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="137dp"
-        android:layout_height="105dp"
+    <View
+        android:id="@+id/bgJudul"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="@drawable/rectanglepointy"
+        android:backgroundTint="@color/orangebagus"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pojokoranye" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvUserInformation"
+        android:id="@+id/ProfileJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
         android:fontFamily="@font/fredoka"
-        android:lines="2"
-        android:text="User \nInformation"
+        android:text="Profile"
         android:textColor="@color/black"
         android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bgJudul"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
-
-    <View
-        app:layout_constraintWidth_max="450dp"
-        android:id="@+id/ivBackgroundBox"
-        android:layout_width="0dp"
-        android:layout_height="380dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rectback"
-        android:elevation="7dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        app:layout_constraintStart_toStartOf="@+id/bgJudul"
+        app:layout_constraintTop_toTopOf="@+id/bgJudul" />
 
     <ImageView
-        android:id="@+id/ivUserPic"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="32dp"
-        android:elevation="7dp"
-        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundBox"
-        app:layout_constraintStart_toStartOf="@+id/ivBackgroundBox"
-        app:layout_constraintTop_toTopOf="@+id/ivBackgroundBox"
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bgJudul"
+        app:layout_constraintStart_toStartOf="@+id/bgJudul"
+        app:layout_constraintTop_toTopOf="@+id/bgJudul"
+        app:srcCompat="@drawable/arrowback" />
+
+    <ImageView
+        android:id="@+id/ivProfilePicUser"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bgJudul"
         app:srcCompat="@drawable/userpic" />
 
     <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
+        android:id="@+id/namaUser"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:elevation="7dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/fredoka"
-        android:text="User Name"
+        android:text="User Full Name"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundBox"
-        app:layout_constraintStart_toStartOf="@+id/ivBackgroundBox"
-        app:layout_constraintTop_toBottomOf="@+id/ivUserPic" />
-
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfilePicUser" />
 
     <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:id="@+id/SelfDesc"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:elevation="7dp"
-        android:fontFamily="@font/fredoka"
-        android:text="Email : "
+        android:fontFamily="@font/fredokathin"
+        android:text="A Happy Gardener"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/tvEmailUser"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@+id/ivBackgroundBox"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/namaUser" />
+
+    <TextView
+        android:id="@+id/tvAccountInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/fredokaa"
+        android:text="Account Info"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SelfDesc" />
+
+    <TextView
+        android:id="@+id/tvEmailTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Email"
+        android:textColor="@color/abuapaya"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountInfo" />
 
     <TextView
         android:id="@+id/tvEmailUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="7dp"
-        android:fontFamily="@font/fredoka"
-        android:text="User@domain.com "
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundBox"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvEmail"
-        app:layout_constraintTop_toTopOf="@+id/tvEmail" />
-
-    <TextView
-        android:id="@+id/tvBirthUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="7dp"
-        android:fontFamily="@font/fredoka"
-        android:text="13-12-2001"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundBox"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvBirth"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
-
-    <TextView
-        android:id="@+id/tvBirth"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:elevation="7dp"
-        android:fontFamily="@font/fredoka"
-        android:text="Birth : "
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="user@domain.com"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/tvBirthUser"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@+id/ivBackgroundBox"
-        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailTitle" />
+
 
     <TextView
-        android:id="@+id/tvAddressUser"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvBirthDateTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:elevation="7dp"
-        android:fontFamily="@font/fredoka"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Birth Date"
+        android:textColor="@color/abuapaya"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailUser" />
+
+    <TextView
+        android:id="@+id/tvBirthDateUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="13-12-2001"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBirthDateTitle" />
+
+    <TextView
+        android:id="@+id/tvAddressTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Address"
+        android:textColor="@color/abuapaya"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBirthDateUser" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tvAddressUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
         android:text="North Nglegok"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundBox"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvAddress"
-        app:layout_constraintTop_toBottomOf="@+id/tvBirthUser" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressTitle" />
+
 
     <TextView
-        android:id="@+id/tvAddress"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvjoinedSinceTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:elevation="7dp"
-        android:fontFamily="@font/fredoka"
-        android:text="Address : "
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Joined Since"
+        android:textColor="@color/abuapaya"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddressUser" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tvJoinedSinceUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="01-02-2023"
         android:textColor="@color/black"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/tvAddressUser"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="@+id/ivBackgroundBox"
-        app:layout_constraintTop_toBottomOf="@+id/tvBirth" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvjoinedSinceTitle" />
 
-    <Button
-        android:id="@+id/btLogout"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvAccountOption"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/abangnjreng"
-        android:elevation="7dp"
-        android:fontFamily="@font/fredoka"
-        android:stateListAnimator="@null"
-        android:text="Logout"
-        android:textColor="@color/hitam"
-        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundBox"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toEndOf="@+id/btEdit"
-        app:layout_constraintTop_toTopOf="@+id/btEdit" />
-
-    <Button
-        android:id="@+id/btEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
-        android:backgroundTint="@color/orangebagus"
-        android:elevation="7dp"
-        android:fontFamily="@font/fredoka"
-        android:stateListAnimator="@null"
-        android:text="Edit"
-        android:textColor="@color/hitam"
-        app:layout_constraintEnd_toStartOf="@+id/btLogout"
+        android:fontFamily="@font/fredokaa"
+        android:text="Account Options"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJoinedSinceUser" />
+
+    <TextView
+        android:id="@+id/tvChangePassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Change Password"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/ivBackgroundBox"
-        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAccountOption" />
+
+    <TextView
+        android:id="@+id/tvLogout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Logout"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChangePassword" />
+
+    <TextView
+        android:id="@+id/tvDeleteAccount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="DeleteAccount"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLogout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
