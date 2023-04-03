@@ -39,12 +39,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Name"
         android:textColor="@color/hitam"
         android:textSize="18sp"
@@ -57,7 +58,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:hint="Insert Name"
         android:inputType="text"
         android:textSize="18sp"
@@ -67,12 +68,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Email"
         android:textColor="@color/hitam"
         android:textSize="18sp"
@@ -85,7 +87,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:hint="Insert Email"
         android:inputType="text"
         android:textSize="18sp"
@@ -95,12 +97,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Password"
         android:textColor="@color/hitam"
         android:textSize="18sp"
@@ -113,7 +116,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:hint="Create new Password"
         android:inputType="text"
         android:textSize="18sp"
@@ -123,12 +126,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
 
     <Button
+        android:textStyle="bold"
         android:id="@+id/btRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/orangebagus"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Register"
         android:textColor="@color/hitam"
         app:layout_constraintEnd_toEndOf="@+id/etPassword"
@@ -136,11 +140,12 @@
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/tvAlready"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Already have an account?"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -155,7 +160,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Login"
         android:textColor="@color/abubagus"
         app:layout_constraintBottom_toBottomOf="parent"

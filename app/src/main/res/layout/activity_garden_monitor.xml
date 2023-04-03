@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GardenMonitorActivity">
+
+    <View
+        android:id="@+id/bgJudulMonitor"
+        android:layout_width="0dp"
+        android:layout_height="185dp"
+        android:background="@drawable/roundedbottomrectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivBackButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/arrowback"
+        app:layout_constraintStart_toStartOf="@+id/bgJudulMonitor"
+        app:layout_constraintTop_toTopOf="@+id/bgJudulMonitor" />
+
+    <TextView
+        android:id="@+id/namaGarden"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/fredokaa"
+        android:text="Kebun \n Something"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="@+id/bgJudulMonitor"
+        app:layout_constraintStart_toEndOf="@+id/ivBackButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLocationGarden"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/fredokathinttf"
+        android:text="Belakang Rumah"
+        android:textAlignment="textEnd"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/bgJudulMonitor"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ivBackButton"
+        app:layout_constraintTop_toBottomOf="@+id/namaGarden" />
+
+
+    <View
+        android:id="@+id/ivBackgroundTank"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rectback"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivBackgroundHumidity"
+        app:layout_constraintTop_toTopOf="@+id/ivBackgroundHumidity" />
+
+    <View
+        android:id="@+id/ivBackgroundHumidity"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rectback"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/ivBackgroundTank"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocationGarden" />
+
+    <View
+        android:id="@+id/ivBackgroundWatering"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rectback"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ivBackgroundTemperature"
+        app:layout_constraintTop_toTopOf="@+id/ivBackgroundTemperature" />
+
+    <View
+        android:id="@+id/ivBackgroundTemperature"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rectback"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/ivBackgroundWatering"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBackgroundHumidity" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="192dp"
+        android:layout_height="169dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/vectorpot" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

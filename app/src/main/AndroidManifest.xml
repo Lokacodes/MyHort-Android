@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Kebunpintar"
         tools:targetApi="31">
         <activity
+            android:name=".GardenMonitorActivity"
+            android:exported="false" />
+        <activity
             android:name=".GardenInfoActivity"
             android:exported="false" />
         <activity

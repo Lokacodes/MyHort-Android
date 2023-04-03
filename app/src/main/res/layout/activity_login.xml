@@ -25,12 +25,13 @@
         app:layout_constraintTop_toTopOf="@+id/pojokorangelogo" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/emailorusernametitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="252dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Email / Username"
         android:textColor="@color/hitam"
         android:textSize="18sp"
@@ -43,7 +44,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:hint="Insert Email / Username"
         android:inputType="text"
         android:textSize="18sp"
@@ -53,11 +54,12 @@
         app:layout_constraintTop_toBottomOf="@+id/emailorusernametitle" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/passwordtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Password"
         android:textColor="@color/hitam"
         android:textSize="18sp"
@@ -70,7 +72,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:hint="Insert Password"
         android:inputType="text"
         android:textSize="18sp"
@@ -81,11 +83,12 @@
 
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/Notregistered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Not Registered?"
         android:textColor="@color/hitam"
         android:textSize="15sp"
@@ -100,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Continue as Guest"
         android:textColor="@color/abuapaya"
         android:textSize="15sp"
@@ -115,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Create Account"
         android:textColor="@color/abubagus"
         android:textSize="15sp"
@@ -135,12 +138,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:textStyle="bold"
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/orangebagus"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Login"
         android:textColor="@color/hitam"
         app:layout_constraintEnd_toEndOf="@+id/password"
@@ -180,7 +184,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Or"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/lineright"
@@ -214,10 +218,11 @@
         app:srcCompat="@drawable/google" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/txtgoogle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Continue With Google"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -251,10 +256,11 @@
         app:srcCompat="@drawable/facebook" />
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/txtfacebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Continue With Facebook"
         android:textColor="@color/white"
         android:textSize="16sp"
