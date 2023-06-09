@@ -10,7 +10,7 @@
         android:id="@+id/ivProfilePic"
         android:layout_width="112dp"
         android:layout_height="112dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,10 +42,11 @@
         android:id="@+id/tvHello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/fredoka"
-        android:text="Hello, User !"
+        android:text="Hello !"
         android:textColor="@color/black"
-        android:textSize="32sp"
+        android:textSize="28sp"
         app:layout_constraintStart_toStartOf="@+id/ivProfilePic"
         app:layout_constraintTop_toBottomOf="@+id/ivProfilePic" />
 
@@ -53,12 +54,42 @@
         android:id="@+id/tvYourGardens"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/fredoka"
-        android:text="Your Gardens"
+        android:text="Your Gardens :"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/tvHello"
         app:layout_constraintTop_toBottomOf="@+id/tvHello" />
+
+    <ImageButton
+        android:id="@+id/addGardenButton"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/plusbutton"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </ImageButton>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvYourGardens"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/list_kebun">
+
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

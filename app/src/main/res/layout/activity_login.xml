@@ -25,16 +25,16 @@
         app:layout_constraintTop_toTopOf="@+id/pojokorangelogo" />
 
     <TextView
-        android:textStyle="bold"
         android:id="@+id/emailorusernametitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="216dp"
         android:fontFamily="@font/fredokathin"
         android:text="Email / Username"
         android:textColor="@color/hitam"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,7 +74,7 @@
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/fredokathin"
         android:hint="Insert Password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -97,20 +97,6 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
-
-    <TextView
-        android:id="@+id/tvcontinueasguest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/fredokathin"
-        android:text="Continue as Guest"
-        android:textColor="@color/abuapaya"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/CreateAccount"
@@ -139,7 +125,7 @@
 
     <Button
         android:textStyle="bold"
-        android:id="@+id/button"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -151,123 +137,123 @@
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toBottomOf="@+id/Notregistered" />
 
-    <ImageView
-        android:id="@+id/lineleft"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/line2"
-        app:layout_constraintEnd_toStartOf="@+id/tvOr"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+<!--    <ImageView-->
+<!--        android:id="@+id/lineleft"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:src="@drawable/line2"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/tvOr"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintHorizontal_chainStyle="spread_inside"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button" />-->
 
-    <ImageView
-        android:id="@+id/lineright"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:src="@drawable/line2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvOr"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-
-    <TextView
-        android:id="@+id/tvOr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/fredokathin"
-        android:text="Or"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@+id/lineright"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/lineleft"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+<!--    <ImageView-->
+<!--        android:id="@+id/lineright"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:src="@drawable/line2"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/tvOr"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button" />-->
 
 
-    <View
-        android:id="@+id/buttonGoogle"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rectangle"
-        android:backgroundTint="@color/birugoogle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvOr" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvOr"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:fontFamily="@font/fredokathin"-->
+<!--        android:text="Or"-->
+<!--        android:textAlignment="center"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/lineright"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/lineleft"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button" />-->
 
-    <ImageView
-        android:id="@+id/logogoogle"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonGoogle"
-        app:layout_constraintStart_toStartOf="@+id/buttonGoogle"
-        app:layout_constraintTop_toTopOf="@+id/buttonGoogle"
-        app:srcCompat="@drawable/google" />
 
-    <TextView
-        android:textStyle="bold"
-        android:id="@+id/txtgoogle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/fredokathin"
-        android:text="Continue With Google"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonGoogle"
-        app:layout_constraintEnd_toEndOf="@+id/buttonGoogle"
-        app:layout_constraintStart_toEndOf="@+id/logogoogle"
-        app:layout_constraintTop_toTopOf="@+id/buttonGoogle" />
+<!--    <View-->
+<!--        android:id="@+id/buttonGoogle"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:background="@drawable/rectangle"-->
+<!--        android:backgroundTint="@color/birugoogle"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvOr" />-->
 
-    <View
-        android:id="@+id/buttonFacebook"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rectangle"
-        android:backgroundTint="@color/birufacebook"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGoogle" />
+<!--    <ImageView-->
+<!--        android:id="@+id/logogoogle"-->
+<!--        android:layout_width="28dp"-->
+<!--        android:layout_height="28dp"-->
+<!--        android:layout_marginStart="12dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/buttonGoogle"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/buttonGoogle"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/buttonGoogle"-->
+<!--        app:srcCompat="@drawable/google" />-->
 
-    <ImageView
-        android:id="@+id/logofacebook"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonFacebook"
-        app:layout_constraintStart_toStartOf="@+id/buttonFacebook"
-        app:layout_constraintTop_toTopOf="@+id/buttonFacebook"
-        app:srcCompat="@drawable/facebook" />
+<!--    <TextView-->
+<!--        android:textStyle="bold"-->
+<!--        android:id="@+id/txtgoogle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/fredokathin"-->
+<!--        android:text="Continue With Google"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/buttonGoogle"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/buttonGoogle"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/logogoogle"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/buttonGoogle" />-->
 
-    <TextView
-        android:textStyle="bold"
-        android:id="@+id/txtfacebook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/fredokathin"
-        android:text="Continue With Facebook"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonFacebook"
-        app:layout_constraintEnd_toEndOf="@+id/buttonFacebook"
-        app:layout_constraintStart_toEndOf="@+id/logofacebook"
-        app:layout_constraintTop_toTopOf="@+id/buttonFacebook" />
+<!--    <View-->
+<!--        android:id="@+id/buttonFacebook"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="45dp"-->
+<!--        android:layout_marginStart="32dp"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:layout_marginEnd="32dp"-->
+<!--        android:background="@drawable/rectangle"-->
+<!--        android:backgroundTint="@color/birufacebook"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonGoogle" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/logofacebook"-->
+<!--        android:layout_width="28dp"-->
+<!--        android:layout_height="28dp"-->
+<!--        android:layout_marginStart="12dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/buttonFacebook"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/buttonFacebook"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/buttonFacebook"-->
+<!--        app:srcCompat="@drawable/facebook" />-->
+
+<!--    <TextView-->
+<!--        android:textStyle="bold"-->
+<!--        android:id="@+id/txtfacebook"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/fredokathin"-->
+<!--        android:text="Continue With Facebook"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/buttonFacebook"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/buttonFacebook"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/logofacebook"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/buttonFacebook" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

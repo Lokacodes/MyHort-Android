@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">kebunpintar</string>
+    <string name="app_name">My Hort</string>
+    <string name="api_server">http://192.168.1.7:8000/api/</string>
+<!--    <string name="api_server_rumah">http://192.168.43.173:8000/api/</string>-->
+    <string name="a_garden_list">a garden list</string>
+    <!--    <string name="api_server_rumah">http://192.168.45.219:8000/api/</string>-->
 </resources>

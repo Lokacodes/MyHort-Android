@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tvAddGardenTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/fredoka"
+        android:text="Add Garden"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvGardenName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/tvGardenName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Garden Name"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etGardenName"
+        app:layout_constraintEnd_toEndOf="@+id/tvAddGardenTitle"
+        app:layout_constraintStart_toStartOf="@+id/tvAddGardenTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddGardenTitle">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/etGardenName"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:fontFamily="@font/fredokathin"
+        android:hint="choose your garden's name"
+        android:inputType="text"
+        android:textColor="@color/abubagus"
+        android:textColorHint="@color/abubagus"
+        app:layout_constraintBottom_toTopOf="@+id/tvGardenLocation"
+        app:layout_constraintEnd_toEndOf="@+id/tvGardenName"
+        app:layout_constraintStart_toStartOf="@+id/tvGardenName"
+        app:layout_constraintTop_toBottomOf="@+id/tvGardenName" />
+
+    <TextView
+        android:id="@+id/tvGardenLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredokathin"
+        android:text="Garden Location"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etGardenLocation"
+        app:layout_constraintEnd_toEndOf="@+id/etGardenName"
+        app:layout_constraintStart_toStartOf="@+id/etGardenName"
+        app:layout_constraintTop_toBottomOf="@+id/etGardenName">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/etGardenLocation"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:fontFamily="@font/fredokathin"
+        android:hint="choose your garden's location"
+        android:inputType="text"
+        android:textColor="@color/abubagus"
+        android:textColorHint="@color/abubagus"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddGarden"
+        app:layout_constraintEnd_toEndOf="@+id/tvGardenLocation"
+        app:layout_constraintStart_toStartOf="@+id/tvGardenLocation"
+        app:layout_constraintTop_toBottomOf="@+id/tvGardenLocation" />
+
+    <Button
+        android:id="@+id/btnAddGarden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/etGardenLocation"
+        app:layout_constraintStart_toStartOf="@+id/etGardenLocation"
+        app:layout_constraintTop_toBottomOf="@+id/etGardenLocation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

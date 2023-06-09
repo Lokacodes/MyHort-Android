@@ -28,27 +28,26 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="160dp"
         android:fontFamily="@font/fredoka"
         android:text="Account Registration"
         android:textColor="@color/abubagus"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:textStyle="bold"
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/fredokathin"
         android:text="Name"
         android:textColor="@color/hitam"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -118,12 +117,41 @@
         android:layout_marginEnd="32dp"
         android:fontFamily="@font/fredokathin"
         android:hint="Create new Password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tvPasswordConf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Password Confirmation"
+        android:textColor="@color/hitam"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+    <EditText
+        android:id="@+id/etPasswordConf"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/fredokathin"
+        android:hint="Password Confirmation"
+        android:inputType="textPassword"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPasswordConf" />
 
     <Button
         android:textStyle="bold"
@@ -135,19 +163,19 @@
         android:fontFamily="@font/fredokathin"
         android:text="Register"
         android:textColor="@color/hitam"
-        app:layout_constraintEnd_toEndOf="@+id/etPassword"
-        app:layout_constraintStart_toStartOf="@+id/etPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintEnd_toEndOf="@+id/etPasswordConf"
+        app:layout_constraintStart_toStartOf="@+id/etPasswordConf"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordConf" />
 
     <TextView
-        android:textStyle="bold"
         android:id="@+id/tvAlready"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/fredokathin"
         android:text="Already have an account?"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvChooseLogin"
         app:layout_constraintHorizontal_bias="0.5"
@@ -159,7 +187,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/fredokathin"
         android:text="Login"
         android:textColor="@color/abubagus"
