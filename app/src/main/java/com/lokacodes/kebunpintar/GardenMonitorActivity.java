@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,7 +20,7 @@ import java.util.TimerTask;
 
 public class GardenMonitorActivity extends AppCompatActivity {
     ActivityGardenMonitorBinding binding;
-    String namaKebun, lokasiKebun,id_user,id_kebun,idAlat;
+    String id_kebun,idAlat;
     String sensor_kepekatan, sensor_ph, sensor_penuh, solenoid_tandon, solenoid_siram;
 
     @Override
@@ -30,17 +31,13 @@ public class GardenMonitorActivity extends AppCompatActivity {
         binding = ActivityGardenMonitorBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        //intentblock : get data from mainactivity
+        //intentblock : get data from the previous activity
         Intent intent = this.getIntent();
         if (intent != null){
-            namaKebun = intent.getStringExtra("nama_kebun");
-            lokasiKebun = intent.getStringExtra("lokasi_kebun");
-            id_user = intent.getStringExtra("id_user");
             id_kebun = intent.getStringExtra("id_kebun");
-
-            binding.namaGarden.setText(namaKebun);
-            binding.tvLocationGarden.setText(lokasiKebun);
         }
+
+        getKebunData();
 
         //timerblock : to call method "getdataalat" every 3 seconds
         new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -51,13 +48,28 @@ public class GardenMonitorActivity extends AppCompatActivity {
         }, 0, 5000);
 
         //backbuttonblock
-        binding.ivBackButton.setOnClickListener(v -> onBackPressed());
+        binding.ivBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GardenMonitorActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         binding.rightToSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GardenMonitorActivity.this, JadwalActivity.class);
                 intent.putExtra("id_alat", idAlat);
+                startActivity(intent);
+            }
+        });
+
+        binding.namaGarden.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GardenMonitorActivity.this, GardenInfoActivity.class);
+                intent.putExtra("id_kebun", id_kebun);
                 startActivity(intent);
             }
         });
@@ -84,6 +96,46 @@ public class GardenMonitorActivity extends AppCompatActivity {
                     updateDataAlat(0,"solenoid_tandon");
             }
         });
+    }
+
+    private void getKebunData() {
+
+        String url = getString(R.string.api_server)+"kebuns/"+id_kebun;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Http http = new Http(GardenMonitorActivity.this, url);
+                http.setAccess_token(true);
+                http.send();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Integer code = http.getResponseCode();
+                        if (code == 200){
+                            try {
+                                JSONObject response = new JSONObject(http.getResponse());
+                                String arrResponse = response.getString("kebun");
+                                JSONObject kebun = new JSONObject(arrResponse); //hanya (dan wajib) berisi satu index sajaaaaa
+                                String namaKebun = kebun.getString("nama_kebun");
+                                String lokasiKebun = kebun.getString("lokasi_kebun");
+
+                                Log.v("namaKebun", namaKebun);
+                                Log.v("lokasiKebun", lokasiKebun);
+
+                                binding.namaGarden.setText(namaKebun);
+                                binding.tvLocationGarden.setText(lokasiKebun);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        else {
+                            Toast.makeText(GardenMonitorActivity.this, "Failed to get user data" + code, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     //methodblock : to get dataAlat from api

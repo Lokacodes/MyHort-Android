@@ -8,7 +8,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -124,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                                     addToArray = new AddToArray(nama_kebun,jsonObject.getString("nama_kebun"));
                                     nama_kebun = addToArray.getArrayNew();
 
-                                    ;
                                     id_user = jsonObject.getString("id_user");
 
                                     addToArray = new AddToArray(id_kebun,jsonObject.getString("id"));
@@ -142,9 +140,6 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                         Intent intent = new Intent(MainActivity.this,GardenMonitorActivity.class);
-                                        intent.putExtra("nama_kebun",nama_kebun[position]);
-                                        intent.putExtra("lokasi_kebun",lokasi_kebun[position]);
-                                        intent.putExtra("id_user",id_user);
                                         intent.putExtra("id_kebun",id_kebun[position]);
                                         startActivity(intent);
                                     }
@@ -173,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         EditText namaKebun = dialog.findViewById(R.id.etGardenName);
         EditText lokasiKebun = dialog.findViewById(R.id.etGardenLocation);
 
-        Button addGardenButton = dialog.findViewById(R.id.btnAddGarden);
+        Button addGardenButton = dialog.findViewById(R.id.btnSaveEditGarden);
         addGardenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

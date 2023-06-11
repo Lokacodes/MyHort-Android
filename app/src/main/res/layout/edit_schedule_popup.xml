@@ -12,7 +12,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/fredokaa"
-        android:text="Add Schedule"
+        android:text="Edit Schedule"
         android:textColor="@color/hitam"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/TimeStartSelect"
@@ -100,14 +100,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/orangebagus"
         android:fontFamily="@font/fredoka"
-        android:text="Add"
-        android:textAllCaps="false"
+        android:text="Update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonDelete"
         app:layout_constraintTop_toBottomOf="@+id/TimeEndSelect"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/red"
+        android:fontFamily="@font/fredoka"
+        android:text="Delete"
+        app:layout_constraintEnd_toStartOf="@+id/buttonUpdate"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonUpdate" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,10 +26,12 @@
         <activity
             android:name=".GardenMonitorActivity"
             android:exported="false"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".GardenInfoActivity"
             android:exported="false"
+            android:parentActivityName=".GardenMonitorActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".UserActivity"
