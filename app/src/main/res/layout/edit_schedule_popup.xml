@@ -7,19 +7,35 @@
 
     <TextView
         android:id="@+id/scheduleTitleString"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/fredokaa"
         android:text="Edit Schedule"
+        android:textAlignment="textStart"
         android:textColor="@color/hitam"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/TimeStartSelect"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/closeButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/closeButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/scheduleTitleString"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/scheduleTitleString"
+        app:layout_constraintTop_toTopOf="@+id/scheduleTitleString"
+        app:srcCompat="@drawable/close_button" />
 
     <TextView
         android:id="@+id/hyphenString"
@@ -39,7 +55,7 @@
         android:layout_width="0dp"
         android:layout_height="62dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:elevation="10dp"
         app:layout_constraintBottom_toTopOf="@+id/hyphenString"

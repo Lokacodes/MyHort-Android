@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -106,14 +107,18 @@ public class MainActivity extends AppCompatActivity {
                         Integer code = http.getResponseCode();
                         if (code == 200){
                             try {
+                                Boolean isClickable = true;
+
                                 JSONObject response = new JSONObject(http.getResponse());
                                 JSONArray jsonArray = response.getJSONArray("kebun");
 
-                                if (jsonArray.toString().equals("[]")){
-                                    Toast.makeText(MainActivity.this, "Data Kosong", Toast.LENGTH_SHORT).show();
-                                }
-
                                 ArrayList<Kebun> kebunArrayList = new ArrayList<>();
+                                if (jsonArray.toString().equals("[]")){
+                                    Kebun kebun = new Kebun("Belum Ada Kebun !", "", "", "");
+                                    kebunArrayList.add(kebun);
+                                    isClickable = false;
+                                    binding.listview.setClickable(isClickable);
+                                }
 
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -127,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     addToArray = new AddToArray(id_kebun,jsonObject.getString("id"));
                                     id_kebun = addToArray.getArrayNew();
+
                                     Kebun kebun = new Kebun(nama_kebun[i], lokasi_kebun[i], id_user, id_kebun[i]);
                                     kebunArrayList.add(kebun);
 
@@ -135,7 +141,9 @@ public class MainActivity extends AppCompatActivity {
                                 kebunListAdapter kebunlistadapter = new kebunListAdapter(MainActivity.this,kebunArrayList);
 
                                 binding.listview.setAdapter(kebunlistadapter);
-                                binding.listview.setClickable(true);
+
+                                if (isClickable.equals(true)){
+                                    binding.listview.setClickable(true);
                                 binding.listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -144,12 +152,14 @@ public class MainActivity extends AppCompatActivity {
                                         startActivity(intent);
                                     }
                                 });
+                                }
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
                         else {
-                            Toast.makeText(MainActivity.this, "Failed to get user data" + code, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Failed to get Gardens " + code, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -169,6 +179,14 @@ public class MainActivity extends AppCompatActivity {
         EditText lokasiKebun = dialog.findViewById(R.id.etGardenLocation);
 
         Button addGardenButton = dialog.findViewById(R.id.btnSaveEditGarden);
+
+        ImageView close = dialog.findViewById(R.id.closeButton);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
         addGardenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.lokacodes.kebunpintar.databinding.ActivityGardenInfoBinding;
@@ -115,6 +116,14 @@ public class GardenInfoActivity extends AppCompatActivity {
         lokasiKebun.setText(lokasi_kebun);
 
         Button addGardenButton = dialog.findViewById(R.id.btnSaveEditGarden);
+
+        ImageView close = dialog.findViewById(R.id.closeButton);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
         addGardenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

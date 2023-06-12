@@ -125,8 +125,9 @@ public class LoginActivity extends AppCompatActivity {
         alert.setTitle("Login Failed");
         alert.setMessage(s);
         alert.setPositiveButton("OK", (dialog, which) -> {
-            etEmail.setText("");
-            etPassword.setText("");
+            dialog.dismiss();
+//            etEmail.setText("");
+//            etPassword.setText("");
         });
         alert.show();
     }

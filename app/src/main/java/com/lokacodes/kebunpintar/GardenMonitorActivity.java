@@ -40,7 +40,9 @@ public class GardenMonitorActivity extends AppCompatActivity {
         getKebunData();
 
         //timerblock : to call method "getdataalat" every 3 seconds
-        new Timer().scheduleAtFixedRate(new TimerTask() {
+
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 getDataAlat();
@@ -51,6 +53,7 @@ public class GardenMonitorActivity extends AppCompatActivity {
         binding.ivBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                timer.purge();
                 Intent intent = new Intent(GardenMonitorActivity.this, MainActivity.class);
                 startActivity(intent);
             }

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -64,8 +65,14 @@ public class JadwalActivity extends AppCompatActivity {
                     try {
                         JSONObject response = new JSONObject(http.getResponse());
                         JSONArray jsonArray = response.getJSONArray("Jadwals");
-
+                        Boolean isClickable = true;
                         ArrayList<Jadwal> jadwalArrayList = new ArrayList<>();
+                        if (jsonArray.length() == 0){
+                            Jadwal jadwal = new Jadwal("Jadwal", "Kosong", "");
+                            jadwalArrayList.add(jadwal);
+                            isClickable = false;
+                            binding.listViewSchedule.setClickable(isClickable);
+                        }
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -92,14 +99,18 @@ public class JadwalActivity extends AppCompatActivity {
                         jadwalListAdapter jadwalListAdapter = new jadwalListAdapter(JadwalActivity.this,jadwalArrayList);
 
                         binding.listViewSchedule.setAdapter(jadwalListAdapter);
-                        binding.listViewSchedule.setClickable(true);
-                        binding.listViewSchedule.setOnItemClickListener((parent, view, position, id) -> {
-                            String off = jam_off[position];
-                            String on = jam_on[position];
-                            String id_jadwal_update = id_jadwal[position];
 
-                            updateSchedulePop(on,off,id_jadwal_update);
-                        });
+                        if (isClickable.equals(true)){
+                            binding.listViewSchedule.setClickable(true);
+                            binding.listViewSchedule.setOnItemClickListener((parent, view, position, id) -> {
+                                String off = jam_off[position];
+                                String on = jam_on[position];
+                                String id_jadwal_update = id_jadwal[position];
+
+                                updateSchedulePop(on,off,id_jadwal_update);
+                            });
+                        }
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -113,7 +124,7 @@ public class JadwalActivity extends AppCompatActivity {
 
     //used to show popup to add a schedule
     private void addSchedulePop() {
-        Dialog dialog = new Dialog(this, R.style.DialogStyle2);
+        Dialog dialog = new Dialog(this, R.style.DialogStyle);
         dialog.setContentView(R.layout.add_schedule_popup);
 
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.bg_pop_up));
@@ -126,6 +137,14 @@ public class JadwalActivity extends AppCompatActivity {
 
         Button addScheduleButton = dialog.findViewById(R.id.buttonUpdate);
         Button deleteButton = dialog.findViewById(R.id.buttonDelete);
+
+        ImageView close = dialog.findViewById(R.id.closeButton);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         timeStartSelect.setOnClickListener(v -> {
 //                 on below line we are getting the
@@ -269,7 +288,7 @@ public class JadwalActivity extends AppCompatActivity {
 
     //used to show popup to update the clicked schedule
     private void updateSchedulePop(String on, String off, String id) {
-        Dialog dialog = new Dialog(this, R.style.DialogStyle2);
+        Dialog dialog = new Dialog(this, R.style.DialogStyle);
         dialog.setContentView(R.layout.edit_schedule_popup);
 
         dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.bg_pop_up));
@@ -285,6 +304,14 @@ public class JadwalActivity extends AppCompatActivity {
 
         Button UpdateScheduleButton = dialog.findViewById(R.id.buttonUpdate);
         Button DeleteScheduleButton = dialog.findViewById(R.id.buttonDelete);
+
+        ImageView close = dialog.findViewById(R.id.closeButton);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
 
         timeStartSelect.setOnClickListener(v -> {
             Date date;
