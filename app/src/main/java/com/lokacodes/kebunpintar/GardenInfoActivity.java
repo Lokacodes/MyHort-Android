@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class GardenInfoActivity extends AppCompatActivity {
 
     ActivityGardenInfoBinding binding;
-    String id_kebun, nama_kebun, lokasi_kebun;
+    String id_alat,id_kebun, nama_kebun, lokasi_kebun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class GardenInfoActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
         if (intent != null){
+            id_alat = intent.getStringExtra("id_alat");
             id_kebun = intent.getStringExtra("id_kebun");
         }
 
@@ -89,7 +90,7 @@ public class GardenInfoActivity extends AppCompatActivity {
 
                                 binding.namaGarden.setText(nama_kebun);
                                 binding.tvLocationGarden.setText(lokasi_kebun);
-                                binding.tvDeviceIDGarden.setText(id_kebun);
+                                binding.tvDeviceIDGarden.setText(id_alat);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

@@ -33,7 +33,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="Email / Username"
         android:textColor="@color/hitam"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,7 @@
         android:fontFamily="@font/fredokathin"
         android:hint="Insert Email / Username"
         android:inputType="text"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +62,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="Password"
         android:textColor="@color/hitam"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailorusername" />
 
@@ -75,7 +75,7 @@
         android:fontFamily="@font/fredokathin"
         android:hint="Insert Password"
         android:inputType="textPassword"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

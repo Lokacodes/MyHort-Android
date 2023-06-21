@@ -61,7 +61,9 @@ public class UserActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onBackPressed();
+                Intent intent = new Intent(UserActivity.this, MainActivity.class);
+                finish();
+                startActivity(intent);
             }
         });
 
@@ -79,6 +81,13 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(UserActivity.this, MainActivity.class);
+        finish();
+        startActivity(intent);
     }
 
     public void getUser() {
@@ -158,11 +167,24 @@ public class UserActivity extends AppCompatActivity {
                 String DoB = birthDate.getText().toString();
 
                 Date date;
-                try {
-                    date = new SimpleDateFormat("yyyy-MM-dd").parse(DoB);
-                } catch (ParseException e) {
-                    throw new RuntimeException(e);
+
+                if (DoB.equals("-") || DoB.isEmpty()){
+                    try {
+                        DoB = java.time.LocalDate.now().toString();
+                        date = new SimpleDateFormat("yyyy-MM-dd").parse(DoB);
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
+                else {
+                    try {
+                        date = new SimpleDateFormat("yyyy-MM-dd").parse(DoB);
+                    } catch (ParseException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date);
                 int yearNew = calendar.get(Calendar.YEAR);
@@ -320,8 +342,9 @@ public class UserActivity extends AppCompatActivity {
                         if (code == 200){
                             Toast.makeText(UserActivity.this, "Logout success", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(UserActivity.this, LoginActivity.class);
-                            startActivity(intent);
                             finish();
+                            startActivity(intent);
+
                         }
                         else {
                             Toast.makeText(UserActivity.this, "Failed to logout. code : " + code, Toast.LENGTH_SHORT).show();

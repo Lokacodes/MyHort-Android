@@ -46,7 +46,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="Name"
         android:textColor="@color/hitam"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -60,7 +60,7 @@
         android:fontFamily="@font/fredokathin"
         android:hint="Insert Name"
         android:inputType="text"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="Email"
         android:textColor="@color/hitam"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
@@ -89,7 +89,7 @@
         android:fontFamily="@font/fredokathin"
         android:hint="Insert Email"
         android:inputType="text"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +105,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="Password"
         android:textColor="@color/hitam"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
@@ -118,7 +118,7 @@
         android:fontFamily="@font/fredokathin"
         android:hint="Create new Password"
         android:inputType="textPassword"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,7 +134,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="Password Confirmation"
         android:textColor="@color/hitam"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
@@ -147,7 +147,7 @@
         android:fontFamily="@font/fredokathin"
         android:hint="Password Confirmation"
         android:inputType="textPassword"
-        android:textSize="18sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -171,7 +171,7 @@
         android:id="@+id/tvAlready"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="64dp"
         android:fontFamily="@font/fredokathin"
         android:text="Already have an account?"
         android:textColor="@color/black"
@@ -187,14 +187,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginBottom="32dp"
         android:fontFamily="@font/fredokathin"
         android:text="Login"
         android:textColor="@color/abubagus"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvAlready" />
+        app:layout_constraintStart_toEndOf="@+id/tvAlready"
+        app:layout_constraintTop_toTopOf="@+id/tvAlready" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,7 +31,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="Kebun"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/card_list"
         app:layout_constraintTop_toTopOf="@+id/card_list">
@@ -44,7 +44,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="backyard"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="@dimen/VerySmall"
         app:layout_constraintStart_toStartOf="@+id/nama_kebun"
         app:layout_constraintTop_toBottomOf="@+id/nama_kebun"
         android:id="@+id/lokasi_kebun"/>

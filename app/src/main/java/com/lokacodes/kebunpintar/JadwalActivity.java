@@ -303,7 +303,7 @@ public class JadwalActivity extends AppCompatActivity {
         timeEnd.setText(off);
 
         Button UpdateScheduleButton = dialog.findViewById(R.id.buttonUpdate);
-        Button DeleteScheduleButton = dialog.findViewById(R.id.buttonDelete);
+        View DeleteScheduleButton = dialog.findViewById(R.id.buttonDelete);
 
         ImageView close = dialog.findViewById(R.id.closeButton);
         close.setOnClickListener(new View.OnClickListener() {

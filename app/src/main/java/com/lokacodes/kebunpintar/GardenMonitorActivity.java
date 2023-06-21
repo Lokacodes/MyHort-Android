@@ -23,6 +23,8 @@ public class GardenMonitorActivity extends AppCompatActivity {
     String id_kebun,idAlat;
     String sensor_kepekatan, sensor_ph, sensor_penuh, solenoid_tandon, solenoid_siram;
 
+    Timer timer = new Timer();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,20 +43,14 @@ public class GardenMonitorActivity extends AppCompatActivity {
 
         //timerblock : to call method "getdataalat" every 3 seconds
 
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                getDataAlat();
-            }
-        }, 0, 5000);
 
         //backbuttonblock
         binding.ivBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                timer.purge();
                 Intent intent = new Intent(GardenMonitorActivity.this, MainActivity.class);
+                timer.cancel();
+                finish();
                 startActivity(intent);
             }
         });
@@ -64,6 +60,8 @@ public class GardenMonitorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GardenMonitorActivity.this, JadwalActivity.class);
                 intent.putExtra("id_alat", idAlat);
+                timer.cancel();
+                finish();
                 startActivity(intent);
             }
         });
@@ -72,7 +70,10 @@ public class GardenMonitorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GardenMonitorActivity.this, GardenInfoActivity.class);
+                intent.putExtra("id_alat", idAlat);
                 intent.putExtra("id_kebun", id_kebun);
+                timer.cancel();
+                finish();
                 startActivity(intent);
             }
         });
@@ -101,7 +102,21 @@ public class GardenMonitorActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        timer.cancel();
+        Intent intent = new Intent(GardenMonitorActivity.this, MainActivity.class);
+        finish();
+        startActivity(intent);
+    }
     private void getKebunData() {
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                getDataAlat();
+            }
+        }, 0, 5000);
 
         String url = getString(R.string.api_server)+"kebuns/"+id_kebun;
         new Thread(new Runnable() {
@@ -123,9 +138,6 @@ public class GardenMonitorActivity extends AppCompatActivity {
                                 String namaKebun = kebun.getString("nama_kebun");
                                 String lokasiKebun = kebun.getString("lokasi_kebun");
 
-                                Log.v("namaKebun", namaKebun);
-                                Log.v("lokasiKebun", lokasiKebun);
-
                                 binding.namaGarden.setText(namaKebun);
                                 binding.tvLocationGarden.setText(lokasiKebun);
                             } catch (JSONException e) {
@@ -133,7 +145,7 @@ public class GardenMonitorActivity extends AppCompatActivity {
                             }
                         }
                         else {
-                            Toast.makeText(GardenMonitorActivity.this, "Failed to get user data" + code, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(GardenMonitorActivity.this, "Failed to get user data " + code, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

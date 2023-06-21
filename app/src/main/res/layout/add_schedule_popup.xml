@@ -11,14 +11,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
         android:fontFamily="@font/fredokaa"
         android:text="Add Schedule"
         android:textColor="@color/hitam"
-        android:textSize="32sp"
+        android:textSize="@dimen/Medium"
         app:layout_constraintBottom_toTopOf="@+id/TimeStartSelect"
         app:layout_constraintEnd_toStartOf="@+id/closeButton"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
@@ -39,29 +39,33 @@
         android:id="@+id/hyphenString"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/fredokathin"
         android:text="-"
         android:textColor="@color/hitam"
-        android:textSize="42sp"
-        app:layout_constraintBottom_toTopOf="@+id/TimeEndSelect"
-        app:layout_constraintEnd_toEndOf="@+id/TimeStartSelect"
-        app:layout_constraintStart_toStartOf="@+id/TimeStartSelect"
-        app:layout_constraintTop_toBottomOf="@+id/TimeStartSelect" />
+        android:textSize="@dimen/Large"
+        app:layout_constraintBottom_toBottomOf="@+id/TimeStartSelect"
+        app:layout_constraintEnd_toStartOf="@+id/TimeEndSelect"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/TimeStartSelect"
+        app:layout_constraintTop_toTopOf="@+id/TimeStartSelect" />
 
     <ImageView
         android:id="@+id/TimeStartSelect"
         android:layout_width="0dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/card_list_orange"
         android:elevation="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/hyphenString"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUpdate"
+        app:layout_constraintEnd_toStartOf="@+id/hyphenString"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scheduleTitleString"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/card_list" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/timeStartString"
@@ -72,7 +76,7 @@
         android:text="--:--"
         android:textAlignment="center"
         android:textColor="@color/hitam"
-        android:textSize="52sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintBottom_toBottomOf="@+id/TimeStartSelect"
         app:layout_constraintEnd_toEndOf="@+id/TimeStartSelect"
         app:layout_constraintStart_toStartOf="@+id/TimeStartSelect"
@@ -82,16 +86,15 @@
     <ImageView
         android:id="@+id/TimeEndSelect"
         android:layout_width="0dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/card_list_orange"
         android:elevation="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonUpdate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hyphenString"
-        app:srcCompat="@drawable/card_list" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/hyphenString"
+        app:layout_constraintTop_toTopOf="@+id/TimeStartSelect" />
 
     <TextView
         android:id="@+id/timeEndString"
@@ -102,7 +105,7 @@
         android:text="--:--"
         android:textAlignment="center"
         android:textColor="@color/hitam"
-        android:textSize="52sp"
+        android:textSize="@dimen/Small"
         app:layout_constraintBottom_toBottomOf="@+id/TimeEndSelect"
         app:layout_constraintEnd_toEndOf="@+id/TimeEndSelect"
         app:layout_constraintStart_toStartOf="@+id/TimeEndSelect"
@@ -114,14 +117,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:fontFamily="@font/fredoka"
+        android:fontFamily="@font/fredokathin"
         android:text="Add"
         android:textAllCaps="false"
+        android:textSize="@dimen/VerySmall"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TimeEndSelect"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintEnd_toEndOf="@+id/TimeEndSelect"
+        app:layout_constraintStart_toStartOf="@+id/TimeStartSelect"
+        app:layout_constraintTop_toBottomOf="@+id/TimeStartSelect" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
