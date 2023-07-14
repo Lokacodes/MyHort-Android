@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +14,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText etEmail,etPassword,etName,etPasswordConf;
+    EditText etEmail,etName,etPasswordConf;
+
+    TextInputEditText etPassword;
     TextView btLogin;
     Button btRegister;
     String email, password, name, passwordConf;
@@ -139,7 +144,8 @@ public class RegisterActivity extends AppCompatActivity {
                 .setPositiveButton("Login", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        onBackPressed();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
                     }
                 })
                 .show();

@@ -30,7 +30,7 @@ import java.util.Date;
 public class JadwalActivity extends AppCompatActivity {
     ActivityJadwalBinding binding;
     String[] jam_on = {}, jam_off = {}, id_jadwal = {};
-    String id_alat, timeStartS, timeEndS;
+    String id_alat, timeStartS, timeEndS,id_kebun;
 
 
     @Override
@@ -42,6 +42,7 @@ public class JadwalActivity extends AppCompatActivity {
         Intent intent = this.getIntent();
         if (intent != null){
             id_alat = intent.getStringExtra("id_alat");
+            id_kebun = intent.getStringExtra("id_kebun");
         }
 
         binding.backButton.setOnClickListener(v -> onBackPressed());
@@ -49,6 +50,15 @@ public class JadwalActivity extends AppCompatActivity {
         binding.addJadwalButton.setOnClickListener(v -> addSchedulePop());
 
         getjadwal();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(JadwalActivity.this, GardenMonitorActivity.class);
+        intent.putExtra("id_kebun", id_kebun);
+        startActivity(intent);
+        finish();
     }
 
     //used first time when the activity is started to get the schedule data collection
@@ -571,7 +581,6 @@ public class JadwalActivity extends AppCompatActivity {
                 .setMessage(s)
                 .setPositiveButton("OK", (dialog, which) -> {
                     dialog.dismiss();
-                    finish();
                     startActivity(getIntent());
                 }
                 )

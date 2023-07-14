@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UserActivity.class);
+                finish();
                 startActivity(intent);
             }
         });
@@ -156,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                         Intent intent = new Intent(MainActivity.this,GardenMonitorActivity.class);
                                         intent.putExtra("id_kebun",id_kebun[position]);
+                                        finish();
                                         startActivity(intent);
                                     }
                                 });
@@ -199,14 +202,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 nama_kebunInput = namaKebun.getText().toString();
                 lokasi_kebunInput = lokasiKebun.getText().toString();
-                checkKebun(nama_kebunInput, nama_kebunInput);
+                Log.v("nama_kebun", nama_kebunInput);
+                Log.v("lokasi_kebun", lokasi_kebunInput);
+                checkKebun(nama_kebunInput, lokasi_kebunInput);
             }
         });
         dialog.show();
     }
 
     private void checkKebun(String namaKebun, String lokasiKebun) {
-        if(namaKebun.isEmpty() || lokasiKebun.isEmpty()){
+        if(namaKebun.isBlank() || lokasiKebun.isBlank() ){
             alertFail("Please fill out the fields!");
         }
         else {

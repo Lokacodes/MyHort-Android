@@ -23,6 +23,8 @@ public class GardenMonitorActivity extends AppCompatActivity {
     String id_kebun,idAlat;
     String sensor_kepekatan, sensor_ph, sensor_penuh, solenoid_tandon, solenoid_siram;
 
+    Boolean SwitchWateringState, SwitchTandonState;
+
     Timer timer = new Timer();
 
     @Override
@@ -41,8 +43,6 @@ public class GardenMonitorActivity extends AppCompatActivity {
 
         getKebunData();
 
-        //timerblock : to call method "getdataalat" every 3 seconds
-
 
         //backbuttonblock
         binding.ivBackButton.setOnClickListener(new View.OnClickListener() {
@@ -60,9 +60,34 @@ public class GardenMonitorActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GardenMonitorActivity.this, JadwalActivity.class);
                 intent.putExtra("id_alat", idAlat);
+                intent.putExtra("id_kebun", id_kebun);
                 timer.cancel();
                 finish();
                 startActivity(intent);
+            }
+        });
+
+
+        binding.switchWatering.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (solenoid_siram.equals("0")){
+                    updateDataAlat(1,"solenoid_siram");
+                }
+                else {
+                    updateDataAlat(0,"solenoid_siram");
+                }
+
+            }
+        });
+
+        binding.switchTandon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (solenoid_tandon.equals("0"))
+                    updateDataAlat(1,"solenoid_tandon");
+                else
+                    updateDataAlat(0,"solenoid_tandon");
             }
         });
 
@@ -75,29 +100,6 @@ public class GardenMonitorActivity extends AppCompatActivity {
                 timer.cancel();
                 finish();
                 startActivity(intent);
-            }
-        });
-
-        //buttonblock : to call method "updatedataalat" when button is clicked to change value of solenoidWatering
-        binding.ivBackgroundWatering.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (solenoid_siram.equals("0"))
-                    updateDataAlat(1,"solenoid_siram");
-                else
-                    updateDataAlat(0,"solenoid_siram");
-            }
-        });
-
-        //buttonblock : to call method "updatedataalat" when button is clicked to change value of solenoidTandon
-        binding.ivBackgroundFillTank.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (solenoid_tandon.equals("0"))
-                    updateDataAlat(1,"solenoid_tandon");
-                else
-                    updateDataAlat(0,"solenoid_tandon");
             }
         });
     }
@@ -116,7 +118,7 @@ public class GardenMonitorActivity extends AppCompatActivity {
             public void run() {
                 getDataAlat();
             }
-        }, 0, 5000);
+        }, 0, 3000);
 
         String url = getString(R.string.api_server)+"kebuns/"+id_kebun;
         new Thread(new Runnable() {
@@ -171,7 +173,8 @@ public class GardenMonitorActivity extends AppCompatActivity {
                             try {
                                 JSONObject response = new JSONObject(http.getResponse());
                                 JSONArray jsonArray = response.getJSONArray("alats");
-                                JSONObject jsonObject = jsonArray.getJSONObject(0); //hanya (dan wajib) berisi satu index sajaaaaa
+                                JSONObject jsonObject = jsonArray.getJSONObject(0);//hanya (dan wajib) berisi satu index sajaaaaa
+//                                Log.v("jsonObject", jsonObject.toString());
                                 sensor_kepekatan = jsonObject.getString("sensor_kepekatan");
                                 sensor_ph = jsonObject.getString("sensor_ph");
                                 sensor_penuh = jsonObject.getString("sensor_penuh");
@@ -180,17 +183,23 @@ public class GardenMonitorActivity extends AppCompatActivity {
                                 idAlat = jsonObject.getString("id");
 
                                 fullOrNot(sensor_penuh,binding.WaterTankValue);
+
                                 onOrOff(solenoid_siram,binding.WateringValue);
                                 onOrOff(solenoid_tandon,binding.FillTankValue);
                                 binding.fertilizerValue.setText(sensor_kepekatan);
+
+                                binding.switchWatering.setChecked(solenoid_siram.equals("1"));
+                                binding.switchTandon.setChecked(solenoid_tandon.equals("1"));
 
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                        }
-                        else {
-                            Toast.makeText(GardenMonitorActivity.this, "Failed to get user data" + code, Toast.LENGTH_SHORT).show();
+                        } else if (code == 404) {
+                            Toast.makeText(GardenMonitorActivity.this, "Failed to get garden data " + code, Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(GardenMonitorActivity.this, "Failed to get garden data " + code, Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });

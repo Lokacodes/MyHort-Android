@@ -448,8 +448,8 @@ public class UserActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(UserActivity.this, LoginActivity.class);
-                        startActivity(intent);
                         finish();
+                        startActivity(intent);
                         dialog.dismiss();
                     }
                 })

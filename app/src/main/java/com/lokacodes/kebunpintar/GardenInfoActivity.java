@@ -44,6 +44,7 @@ public class GardenInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(GardenInfoActivity.this, GardenMonitorActivity.class);
                 intent.putExtra("id_kebun", id_kebun);
+                finish();
                 startActivity(intent);
             }
         });
@@ -63,6 +64,7 @@ public class GardenInfoActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(GardenInfoActivity.this, GardenMonitorActivity.class);
         intent.putExtra("id_kebun", id_kebun);
+        finish();
         startActivity(intent);
     }
 
@@ -349,6 +351,7 @@ public class GardenInfoActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(GardenInfoActivity.this, GardenMonitorActivity.class);
                                 intent.putExtra("id_kebun", id_kebun);
+                                finish();
                                 startActivity(intent);
                                 dialog.dismiss();
                             }
@@ -365,6 +368,7 @@ public class GardenInfoActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(GardenInfoActivity.this, MainActivity.class);
+                                finish();
                                 startActivity(intent);
                                 dialog.dismiss();
                             }

@@ -147,8 +147,7 @@
         android:id="@+id/WateringValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
         android:elevation="10dp"
         android:fontFamily="@font/fredoka"
         android:text=""
@@ -156,8 +155,9 @@
         android:textColor="@color/hijaubagus"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundWatering"
-        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundWatering" />
+        app:layout_constraintBottom_toBottomOf="@+id/switchWatering"
+        app:layout_constraintEnd_toStartOf="@+id/switchWatering"
+        app:layout_constraintTop_toTopOf="@+id/switchWatering" />
 
     <View
         android:id="@+id/ivBackgroundFillTank"
@@ -178,8 +178,7 @@
         android:id="@+id/FillTankValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
         android:elevation="10dp"
         android:fontFamily="@font/fredoka"
         android:text=""
@@ -187,8 +186,9 @@
         android:textColor="@color/red"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundFillTank"
-        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundFillTank" />
+        app:layout_constraintBottom_toBottomOf="@+id/switchTandon"
+        app:layout_constraintEnd_toStartOf="@+id/switchTandon"
+        app:layout_constraintTop_toTopOf="@+id/switchTandon" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier5"
@@ -315,6 +315,26 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/ivBackgroundFillTank"
         app:layout_constraintTop_toTopOf="@+id/ivBackgroundFillTank" />
+
+    <Switch
+        android:id="@+id/switchWatering"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundWatering"
+        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundWatering" />
+
+    <Switch
+        android:id="@+id/switchTandon"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundFillTank"
+        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundFillTank" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
         btRegister.setOnClickListener(v -> {
             Intent myIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+            finish();
             startActivity(myIntent);
         });
 
@@ -91,8 +92,8 @@ public class LoginActivity extends AppCompatActivity {
                                 String access_token = response.getString("access_token");
                                 localStorage.setAccess_token(access_token);
                                 Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(myIntent);
                                 finish();
+                                startActivity(myIntent);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
