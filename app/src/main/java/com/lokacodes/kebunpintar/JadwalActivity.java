@@ -48,9 +48,17 @@ public class JadwalActivity extends AppCompatActivity {
 
         binding.backButton.setOnClickListener(v -> onBackPressed());
 
-        binding.addJadwalButton.setOnClickListener(v -> addSchedulePop());
+        binding.addJadwalButton.setOnClickListener(v -> cekExistingJadwal());
 
         getjadwal();
+    }
+
+    private void cekExistingJadwal() {
+        if (id_jadwal.length >= 4) {
+            alertFail("You have reached the maximum schedule");
+        } else {
+            addSchedulePop();
+        }
     }
 
     @Override
