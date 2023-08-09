@@ -63,6 +63,14 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent myIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+        startActivity(myIntent);
+        finish();
+    }
+
     private void checkRegister() {
         name = etName.getText().toString();
         email = etEmail.getText().toString();

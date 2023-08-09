@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">My Hort</string>
-    <string name="api_server">https://willtani.id/api/</string>
+    <string name="api_server">https://myhort.willtani.id/api/</string>
+<!--    <string name="api_server">http://192.168.1.13:8000/api/</string>-->
     <string name="a_garden_list">a garden list</string>
 </resources>

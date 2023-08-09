@@ -29,8 +29,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-    String greeting, name, nName[],id_user,nama_kebunInput,lokasi_kebunInput;
-    String[] lokasi_kebun = {}, nama_kebun = {}, id_kebun = {};
+    String greeting, name, nName[],id_user,nama_kebunInput,lokasi_kebunInput,id_alatInput;
+    String[] lokasi_kebun = {}, nama_kebun = {}, id_kebun = {} , id_alat = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+//    method to get (only) user name
+//    even it's actually returning the whole user data
     public void getUser() {
         String url = getString(R.string.api_server)+"getAuthUser";
         new Thread(new Runnable() {
@@ -101,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
         }).start();
     }
 
+    // method to get kebun data and set it to listview
     private void getKebun() {
         String url = getString(R.string.api_server)+"kebuns";
         new Thread(new Runnable() {
@@ -116,10 +119,10 @@ public class MainActivity extends AppCompatActivity {
                         Integer code = http.getResponseCode();
                         if (code == 200){
                             try {
-                                Boolean isClickable = true;
+                                Boolean isClickable = true; // a var to help set the listview clickable to true
 
-                                JSONObject response = new JSONObject(http.getResponse());
-                                JSONArray jsonArray = response.getJSONArray("kebun");
+                                JSONObject response = new JSONObject(http.getResponse()); // get the response from server
+                                JSONArray jsonArray = response.getJSONArray("kebun"); // get the "kebun" array from response
 
                                 ArrayList<Kebun> kebunArrayList = new ArrayList<>();
                                 if (jsonArray.toString().equals("[]")){
@@ -131,20 +134,25 @@ public class MainActivity extends AppCompatActivity {
 
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-                                    AddToArray addToArray = new AddToArray(lokasi_kebun,jsonObject.getString("lokasi_kebun"));
-                                    lokasi_kebun = addToArray.getArrayNew();
-
-                                    addToArray = new AddToArray(nama_kebun,jsonObject.getString("nama_kebun"));
-                                    nama_kebun = addToArray.getArrayNew();
 
                                     id_user = jsonObject.getString("id_user");
 
-                                    addToArray = new AddToArray(id_kebun,jsonObject.getString("id"));
-                                    id_kebun = addToArray.getArrayNew();
+                                    AddToArray addToArrayLokasiKebun = new AddToArray(lokasi_kebun,jsonObject.getString("lokasi_kebun"));
+                                    lokasi_kebun = addToArrayLokasiKebun.getArrayNew();
 
-                                    Kebun kebun = new Kebun(nama_kebun[i], lokasi_kebun[i], id_user, id_kebun[i]);
+                                    AddToArray addToArrayNamaKebun = new AddToArray(nama_kebun,jsonObject.getString("nama_kebun"));
+                                    nama_kebun = addToArrayNamaKebun.getArrayNew();
+
+                                    AddToArray addToArrayIDKebun = new AddToArray(id_kebun,jsonObject.getString("id"));
+                                    id_kebun = addToArrayIDKebun.getArrayNew();
+
+                                    AddToArray addToArrayIDAlat = new AddToArray(id_alat,jsonObject.getString("id_alat"));
+                                    id_alat = addToArrayIDAlat.getArrayNew();
+
+                                    Log.d("id_alat", id_alat[i]);
+
+                                    Kebun kebun = new Kebun(nama_kebun[i], lokasi_kebun[i], id_user, id_alat[i]);
                                     kebunArrayList.add(kebun);
-
                                 }
 
                                 kebunListAdapter kebunlistadapter = new kebunListAdapter(MainActivity.this,kebunArrayList);
@@ -158,6 +166,11 @@ public class MainActivity extends AppCompatActivity {
                                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                         Intent intent = new Intent(MainActivity.this,GardenMonitorActivity.class);
                                         intent.putExtra("id_kebun",id_kebun[position]);
+                                        intent.putExtra("id_alat",id_alat[position]);
+
+                                        Log.d("id_alat intent", id_alat[position]);
+                                        Log.d("id_kebun intent", id_kebun[position]);
+
                                         finish();
                                         startActivity(intent);
                                     }
@@ -187,6 +200,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText namaKebun = dialog.findViewById(R.id.etGardenName);
         EditText lokasiKebun = dialog.findViewById(R.id.etGardenLocation);
+        EditText idAlat = dialog.findViewById(R.id.etDeviceID);
 
         Button addGardenButton = dialog.findViewById(R.id.btnSaveEditGarden);
 
@@ -202,22 +216,59 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 nama_kebunInput = namaKebun.getText().toString();
                 lokasi_kebunInput = lokasiKebun.getText().toString();
+                id_alatInput = idAlat.getText().toString();
                 Log.v("nama_kebun", nama_kebunInput);
                 Log.v("lokasi_kebun", lokasi_kebunInput);
-                checkKebun(nama_kebunInput, lokasi_kebunInput);
+                Log.v("id_alat", id_alatInput);
+                checkKebun(nama_kebunInput, lokasi_kebunInput, id_alatInput);
             }
         });
         dialog.show();
     }
 
-    private void checkKebun(String namaKebun, String lokasiKebun) {
-        if(namaKebun.isBlank() || lokasiKebun.isBlank() ){
+    private void checkKebun(String namaKebun, String lokasiKebun, String id_alat) {
+        if(namaKebun.isBlank() || lokasiKebun.isBlank() || id_alat.isBlank()){
             alertFail("Please fill out the fields!");
         }
         else {
-            alertConf("Are you sure you want to add this garden?");
+            checkAlat(id_alat);
         }
+    }
 
+    //method to check if an alat is already registered
+    private void checkAlat(String id_alat) {
+        String url = getString(R.string.api_server)+"cekIDAlat?id_alat="+id_alat;
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Http http = new Http(MainActivity.this, url);
+                http.setMethod("GET");
+                http.setAccess_token(true);
+                http.send();
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Integer responseCode = http.getResponseCode();
+
+                        if (responseCode == 200) {
+                            alertConf("Are you sure you want to add this garden?");
+                        } else if (responseCode == 403) {
+                            try {
+                                JSONObject response = new JSONObject(http.getResponse());
+                                String message = response.getString("message");
+                                alertFail(message);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(MainActivity.this, "Something went wrong! code : " + responseCode, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }).start();
     }
 
     private void sendAddGarden() {
@@ -226,6 +277,7 @@ public class MainActivity extends AppCompatActivity {
             params.put("nama_kebun", nama_kebunInput);
             params.put("lokasi_kebun", lokasi_kebunInput);
             params.put("id_user", id_user);
+            params.put("id_alat", id_alatInput);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -245,19 +297,17 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Integer responseCode = http.getResponseCode();
-
+                        String arrResponse = "";
                         if (responseCode == 200) {
                             try {
                                 JSONObject response = new JSONObject(http.getResponse());
-                                String arrResponse = response.getString("kebun");
-                                JSONObject kebun = new JSONObject(arrResponse);
-                                String id_kebun_baru = kebun.getString("id");
-                                sendAddAlat(id_kebun_baru);
+                                arrResponse = response.getString("message");
+//                                Log.d("response", arrResponse);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-
-                            alertSuccess("Add Garden Success!");
+                            alertSuccess(arrResponse);
+                            Log.d("response", arrResponse);
                         } else if (responseCode == 422) {
                             try {
                                 JSONObject response = new JSONObject(http.getResponse());

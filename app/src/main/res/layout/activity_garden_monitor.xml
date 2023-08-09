@@ -63,7 +63,7 @@
         android:layout_height="98dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/rectback"
         android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,35 +71,100 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLocationGarden" />
 
-    <ImageView
-
-        android:id="@+id/waterdropjadwal"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="32dp"
-        android:elevation="10dp"
-        android:src="@drawable/waterdropbluegoogle"
-        app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundJadwal"
-        app:layout_constraintStart_toStartOf="@+id/ivBackgroundJadwal"
-        app:layout_constraintTop_toTopOf="@+id/ivBackgroundJadwal"></ImageView>
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
         android:elevation="10dp"
-        android:textColor="@color/hitam"
         android:fontFamily="@font/fredokathin"
         android:text="Watering\nSchedule"
+        android:textColor="@color/hitam"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundJadwal"
-        app:layout_constraintStart_toEndOf="@+id/waterdropjadwal"
+        app:layout_constraintEnd_toStartOf="@+id/rightToSchedule"
         app:layout_constraintTop_toTopOf="@+id/ivBackgroundJadwal"
-        app:layout_constraintVertical_bias="0.51">
+        app:layout_constraintVertical_bias="0.523"
+        android:layout_marginEnd="16dp">
 
     </TextView>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/baseline_cloud_24"
+        android:elevation="10dp"
+        app:layout_constraintStart_toStartOf="@+id/ivBackgroundJadwal"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="@color/hijaubagus"
+        app:layout_constraintTop_toTopOf="@+id/ivBackgroundJadwal" />
+
+    <TextView
+        android:id="@+id/tempString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Temperature"
+        android:textColor="@color/hitam"
+        android:textSize="@dimen/Small"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"></TextView>
+
+    <TextView
+        android:id="@+id/tempValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:fontFamily="@font/fredokathin"
+        android:text=""
+        android:textColor="@color/hitam"
+        android:textSize="@dimen/Small"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tempString"
+        app:layout_constraintTop_toBottomOf="@+id/tempString"></TextView>
+
+    <View
+        android:id="@+id/humIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/baseline_water_drop_24"
+        android:backgroundTint="@color/birugoogle"
+        android:elevation="10dp"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/humString"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Humidity"
+        android:textColor="@color/hitam"
+        android:textSize="@dimen/Small"
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/humIcon"
+        app:layout_constraintTop_toTopOf="@+id/humIcon"></TextView>
+
+    <TextView
+        android:id="@+id/humValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:fontFamily="@font/fredokathin"
+        android:text=""
+        android:textColor="@color/hitam"
+        android:textSize="@dimen/Small"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/humString"
+        app:layout_constraintTop_toBottomOf="@+id/humString"></TextView>
 
     <View
         android:id="@+id/ivBackgroundWaterTank"
@@ -215,7 +280,7 @@
         android:id="@+id/rightToSchedule"
         android:layout_width="24dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="24dp"
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundJadwal"
         app:layout_constraintEnd_toEndOf="@+id/ivBackgroundJadwal"
@@ -268,6 +333,19 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/ivBackgroundWaterTank"
         app:layout_constraintTop_toTopOf="@+id/ivBackgroundWaterTank" />
+
+    <View
+        android:id="@+id/btTankHeight"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/baseline_info_24"
+        android:elevation="11dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivBackgroundWaterTank"
+        app:layout_constraintTop_toTopOf="@+id/ivBackgroundWaterTank">
+
+    </View>
 
     <TextView
         android:id="@+id/WaterTankValue"
@@ -335,6 +413,18 @@
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundFillTank"
         app:layout_constraintEnd_toEndOf="@+id/ivBackgroundFillTank" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:background="?android:attr/listDivider"
+        android:backgroundTint="@color/black"
+        android:elevation="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/ivBackgroundJadwal"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/tempString"
+        app:layout_constraintTop_toTopOf="@+id/ivBackgroundJadwal" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

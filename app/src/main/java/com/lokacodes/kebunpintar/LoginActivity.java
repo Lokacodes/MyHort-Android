@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -94,6 +95,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
                                 finish();
                                 startActivity(myIntent);
+                                Log.v("Login", responseCode.toString());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+//TODO : repair the intent extras to and from monitoring activity
 public class JadwalActivity extends AppCompatActivity {
     ActivityJadwalBinding binding;
     String[] jam_on = {}, jam_off = {}, id_jadwal = {};
@@ -56,6 +57,7 @@ public class JadwalActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(JadwalActivity.this, GardenMonitorActivity.class);
+        intent.putExtra("id_alat", id_alat);
         intent.putExtra("id_kebun", id_kebun);
         startActivity(intent);
         finish();
@@ -87,8 +89,8 @@ public class JadwalActivity extends AppCompatActivity {
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                            String jam_onRef = hourNMinOnly(jsonObject.getString("jam_on"));
-                            String jam_offRef = hourNMinOnly(jsonObject.getString("jam_off"));
+                            String jam_onRef = jsonObject.getString("jam_on");
+                            String jam_offRef = jsonObject.getString("jam_off");
                             String id_jadwalRef = jsonObject.getString("id");
 
                             AddToArray addToArray = new AddToArray(jam_on,jam_onRef);
@@ -412,7 +414,6 @@ public class JadwalActivity extends AppCompatActivity {
     }
 
     //used to store the updated schedule
-    //TODO: http request update
     private void updateSchedule(String timeStartS, String timeEndS, String id_jadwal) {
         JSONObject params = new JSONObject();
         try {
@@ -472,7 +473,6 @@ public class JadwalActivity extends AppCompatActivity {
     }
 
     //used to delete the clicked schedule
-    //TODO: http request delete
     private void deleteSchedule(String id_alat) {
         String url = getString(R.string.api_server)+"jadwals/"+id_alat;
 
@@ -588,9 +588,9 @@ public class JadwalActivity extends AppCompatActivity {
     }
 
     public String hourNMinOnly(String str) {
-        if (str != null && str.length() > 0) {
-            str = str.substring(0, str.length() - 3);
-        }
+//        if (str != null && str.length() > 0) {
+//            str = str.substring(0, str.length() - 3);
+//        }
         return str;
     }
 }

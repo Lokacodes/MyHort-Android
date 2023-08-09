@@ -19,6 +19,7 @@ import com.lokacodes.kebunpintar.databinding.ActivityGardenInfoBinding;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//TODO : repair the intent extras to and from monitoring activity
 public class GardenInfoActivity extends AppCompatActivity {
 
     ActivityGardenInfoBinding binding;
@@ -42,10 +43,8 @@ public class GardenInfoActivity extends AppCompatActivity {
         binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(GardenInfoActivity.this, GardenMonitorActivity.class);
-                intent.putExtra("id_kebun", id_kebun);
+                onBackPressed();
                 finish();
-                startActivity(intent);
             }
         });
 
@@ -64,6 +63,7 @@ public class GardenInfoActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(GardenInfoActivity.this, GardenMonitorActivity.class);
         intent.putExtra("id_kebun", id_kebun);
+        intent.putExtra("id_alat", id_alat);
         finish();
         startActivity(intent);
     }

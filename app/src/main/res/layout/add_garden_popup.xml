@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/tvAddGardenTitle"
         android:layout_width="0dp"
@@ -42,7 +41,7 @@
         android:id="@+id/tvGardenName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/fredokathin"
         android:text="Garden Name"
         android:textColor="@color/black"
@@ -50,6 +49,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/etGardenName"
         app:layout_constraintEnd_toEndOf="@+id/closeButton"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/tvAddGardenTitle"
         app:layout_constraintTop_toBottomOf="@+id/tvAddGardenTitle">
 
@@ -62,11 +62,12 @@
         android:fontFamily="@font/fredokathin"
         android:hint="choose your garden's name"
         android:inputType="text"
-        android:textSize="@dimen/Small"
         android:textColor="@color/abubagus"
         android:textColorHint="@color/abubagus"
+        android:textSize="@dimen/Small"
         app:layout_constraintBottom_toTopOf="@+id/tvGardenLocation"
         app:layout_constraintEnd_toEndOf="@+id/tvGardenName"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/tvGardenName"
         app:layout_constraintTop_toBottomOf="@+id/tvGardenName" />
 
@@ -74,6 +75,7 @@
         android:id="@+id/tvGardenLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/fredokathin"
         android:text="Garden Location"
         android:textColor="@color/black"
@@ -81,6 +83,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/etGardenLocation"
         app:layout_constraintEnd_toEndOf="@+id/etGardenName"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/etGardenName"
         app:layout_constraintTop_toBottomOf="@+id/etGardenName">
 
@@ -93,24 +96,60 @@
         android:fontFamily="@font/fredokathin"
         android:hint="choose your garden's location"
         android:inputType="text"
-        android:textSize="@dimen/Small"
         android:textColor="@color/abubagus"
         android:textColorHint="@color/abubagus"
-        app:layout_constraintBottom_toTopOf="@+id/btnSaveEditGarden"
+        android:textSize="@dimen/Small"
+        app:layout_constraintBottom_toTopOf="@+id/tvDeviceID"
         app:layout_constraintEnd_toEndOf="@+id/tvGardenLocation"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/tvGardenLocation"
         app:layout_constraintTop_toBottomOf="@+id/tvGardenLocation" />
+
+    <TextView
+        android:id="@+id/tvDeviceID"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/fredokathin"
+        android:text="Device ID"
+        android:textColor="@color/black"
+        android:textSize="@dimen/Small"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etDeviceID"
+        app:layout_constraintEnd_toEndOf="@+id/etGardenLocation"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/etGardenLocation"
+        app:layout_constraintTop_toBottomOf="@+id/etGardenLocation">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/etDeviceID"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:fontFamily="@font/fredokathin"
+        android:hint="choose your garden's location"
+        android:inputType="text"
+        android:textColor="@color/abubagus"
+        android:textColorHint="@color/abubagus"
+        android:textSize="@dimen/Small"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveEditGarden"
+        app:layout_constraintEnd_toEndOf="@+id/tvDeviceID"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/tvDeviceID"
+        app:layout_constraintTop_toBottomOf="@+id/tvDeviceID" />
 
     <Button
         android:id="@+id/btnSaveEditGarden"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:textSize="@dimen/Small"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:text="Add"
+        android:textSize="@dimen/Small"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/etGardenLocation"
-        app:layout_constraintStart_toStartOf="@+id/etGardenLocation"
-        app:layout_constraintTop_toBottomOf="@+id/etGardenLocation" />
+        app:layout_constraintEnd_toEndOf="@+id/etDeviceID"
+        app:layout_constraintStart_toStartOf="@+id/etDeviceID"
+        app:layout_constraintTop_toBottomOf="@+id/etDeviceID" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
