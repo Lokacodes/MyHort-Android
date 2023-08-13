@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/BACKGROUND"
     tools:context=".GardenMonitorActivity">
 
     <View
@@ -78,7 +79,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/fredokathin"
         android:text="Watering\nSchedule"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundJadwal"
@@ -108,7 +109,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/fredokathin"
         android:text="Temperature"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         android:layout_marginStart="16dp"
@@ -122,7 +123,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/fredokathin"
         android:text=""
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tempString"
@@ -146,7 +147,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/fredokathin"
         android:text="Humidity"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         android:layout_marginStart="16dp"
@@ -160,7 +161,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/fredokathin"
         android:text=""
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/humString"
@@ -276,16 +277,19 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/vectorpot" />
 
-    <ImageView
+    <View
         android:id="@+id/rightToSchedule"
-        android:layout_width="24dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
         android:elevation="10dp"
+        android:backgroundTint="@color/arrow"
         app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundJadwal"
         app:layout_constraintEnd_toEndOf="@+id/ivBackgroundJadwal"
         app:layout_constraintTop_toTopOf="@+id/ivBackgroundJadwal"
-        app:srcCompat="@drawable/rightangle" />
+        android:background="@drawable/baseline_keyboard_arrow_right_24">
+
+    </View>
 
     <TextView
         android:id="@+id/fertilizerTitle"
@@ -296,7 +300,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/fredokathin"
         android:text="Fertilizer"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/ivBackgroundfertilizer"
@@ -313,7 +317,7 @@
         android:fontFamily="@font/fredokathin"
         android:text=""
         android:textAlignment="textEnd"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundfertilizer"
@@ -328,7 +332,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/fredokathin"
         android:text="Water \nTank"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/ivBackgroundWaterTank"
@@ -341,7 +345,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/baseline_info_24"
-        android:elevation="11dp"
+        android:backgroundTint="@color/BandW"
+        android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="@+id/ivBackgroundWaterTank"
         app:layout_constraintTop_toTopOf="@+id/ivBackgroundWaterTank">
 
@@ -357,7 +362,7 @@
         android:fontFamily="@font/fredoka"
         android:text=""
         android:textAlignment="textEnd"
-        android:textColor="@color/hijaubagus"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ivBackgroundWaterTank"
@@ -372,7 +377,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/fredokathin"
         android:text="Watering"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/ivBackgroundWatering"
@@ -388,7 +393,7 @@
         android:elevation="10dp"
         android:fontFamily="@font/fredokathin"
         android:text="Fill Tank"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/ivBackgroundFillTank"

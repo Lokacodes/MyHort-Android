@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    style="@style/BACKGROUND">
 
     <View
         android:id="@+id/pojokorangelogo"
@@ -25,6 +26,7 @@
         app:layout_constraintTop_toTopOf="@+id/pojokorangelogo" />
 
     <TextView
+
         android:id="@+id/emailorusernametitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +34,7 @@
         android:layout_marginTop="216dp"
         android:fontFamily="@font/fredokathin"
         android:text="Email / Username"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +63,7 @@
         android:layout_marginStart="32dp"
         android:fontFamily="@font/fredokathin"
         android:text="Password"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailorusername" />
@@ -90,7 +92,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/fredokathin"
         android:text="Not Registered?"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@+id/CreateAccount"
         app:layout_constraintHorizontal_bias="0.5"
@@ -106,7 +108,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/fredokathin"
         android:text="Create Account"
-        android:textColor="@color/abubagus"
+        style="@style/TEXT"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

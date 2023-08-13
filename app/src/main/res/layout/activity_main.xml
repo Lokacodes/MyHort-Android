@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/BACKGROUND"
     tools:context=".MainActivity">
 
     <ImageView
@@ -44,7 +45,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/fredoka"
         android:text="Hello !"
-        android:textColor="@color/black"
+        style="@style/TEXT"
         android:textSize="@dimen/Medium"
         app:layout_constraintStart_toStartOf="@+id/ivProfilePic"
         app:layout_constraintTop_toBottomOf="@+id/ivProfilePic" />
@@ -56,7 +57,7 @@
         android:layout_marginTop="4dp"
         android:fontFamily="@font/fredoka"
         android:text="Your Gardens :"
-        android:textColor="@color/black"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         app:layout_constraintStart_toStartOf="@+id/tvHello"
         app:layout_constraintTop_toBottomOf="@+id/tvHello" />

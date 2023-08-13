@@ -14,7 +14,7 @@
         android:fontFamily="@font/fredokaa"
         android:text="Edit Schedule"
         android:textAlignment="textStart"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Medium"
         app:layout_constraintBottom_toTopOf="@+id/TimeStartSelect"
         app:layout_constraintEnd_toStartOf="@+id/closeButton"
@@ -60,7 +60,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="--:--"
         android:textAlignment="center"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         app:layout_constraintBottom_toBottomOf="@+id/TimeStartSelect"
         app:layout_constraintEnd_toEndOf="@+id/TimeStartSelect"
@@ -89,7 +89,7 @@
         android:fontFamily="@font/fredokathin"
         android:text="--:--"
         android:textAlignment="center"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Small"
         app:layout_constraintBottom_toBottomOf="@+id/TimeEndSelect"
         app:layout_constraintEnd_toEndOf="@+id/TimeEndSelect"
@@ -104,7 +104,7 @@
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/fredokathin"
         android:text="-"
-        android:textColor="@color/hitam"
+        style="@style/TEXT"
         android:textSize="@dimen/Large"
         app:layout_constraintBottom_toBottomOf="@+id/TimeStartSelect"
         app:layout_constraintEnd_toStartOf="@+id/TimeEndSelect"
@@ -210,11 +210,13 @@
         android:layout_height="28dp"
         android:layout_marginStart="24dp"
         android:background="@drawable/delete"
+        android:backgroundTint="@color/BandW"
         app:layout_constraintBottom_toBottomOf="@+id/buttonUpdate"
         app:layout_constraintEnd_toStartOf="@+id/buttonUpdate"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buttonUpdate" />
+        app:layout_constraintTop_toTopOf="@+id/buttonUpdate"
+        app:layout_constraintVertical_bias="0.45" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

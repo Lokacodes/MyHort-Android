@@ -38,4 +38,14 @@
         <item name="android:windowMinWidthMajor">70%</item>
         <item name="android:windowMinWidthMinor">70%</item>
     </style>
+
+    <style name="BACKGROUND">
+        <item name="android:background">#121212</item>
+    </style>
+
+    <style name="TEXT">
+        <item name="android:textColor">@color/orangebagus_50</item>
+    </style>
+
+
 </resources>

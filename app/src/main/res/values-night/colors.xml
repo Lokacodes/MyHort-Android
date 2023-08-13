@@ -19,8 +19,8 @@
     <color name="birugoogle">#4285F4</color>
     <color name="abangnjreng">#E96245</color>
     <color name="red">#F44336</color>
-    <color name="kotak">#FBFAF6</color>
-    <color name="arrow">#FF000000</color>
-    <color name="BandW">#FF000000</color>
-    <color name="kotakStroke">#FFFFFFFF</color>
+    <color name="kotak">#121212</color>
+    <color name="arrow">#FFFFFFFF</color>
+    <color name="BandW">#FFFFFFFF</color>
+    <color name="kotakStroke">#FED049</color>
 </resources>
